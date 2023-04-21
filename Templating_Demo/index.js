@@ -12,9 +12,14 @@ app.get("/", (req, res) => {
   // defalut 경로는 views/ 이므로 생략가능
 });
 
+app.get("/r/:subreddit", (req, res) => {
+  const { subreddit } = req.params;
+  res.render("subreddit", { subreddit });
+});
+
 app.get("/rand", (req, res) => {
   const num = Math.floor(Math.random() * 10) + 1;
-  res.render("random", { rand: num });
+  res.render("random", { num });
   //   키-값 ======= rand: num
   //   random.ejs 에 키와 그의 값을 전달
 });
